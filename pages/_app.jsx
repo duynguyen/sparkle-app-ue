@@ -10,6 +10,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Sparkle Demo</title>
+        <meta name="urn:auecon:aemconnection" content={`aem:${process.env.NEXT_PUBLIC_AUTHOR_HOST}`}/>
+        <script src="universal-editor-embedded.js" async></script>
       </Head>
 
       <ResizeProvider>
