@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
+import Link from "next/link";
 
 const ArrowSvg = () => (
   <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 18 18" width="18">
@@ -17,21 +18,21 @@ export default function Header({ isAuthorVersion, host }) {
     <header className="header">
       <div className="content">
         <div className="left">
-          <a href="/">
+          <Link href="/">
             <Image src={"/wknd-logo-dk.svg"} alt="logo" height={36} width={"100%"} className="logo" />
-          </a>
+          </Link>
         </div>
 
         <ul className="middle">
-          <a href="/adventures">
+          <Link href="/adventures">
             <li>adventures</li>
-          </a>
-          <a href="/magazine">
+          </Link>
+          <Link href="/magazine">
             <li>magazine</li>
-          </a>
-          <a href="/about-us">
+          </Link>
+          <Link href="/about-us">
             <li>about us</li>
-          </a>
+          </Link>
         </ul>
 
         <div className="right">
