@@ -10,7 +10,7 @@ export const getAuthorHost = () => {
 	if (searchParams.has("authorHost")) {
 		return searchParams.get("authorHost");
 	} else {
-		return process.env.NEXT_PUBLIC_AUTHOR_HOST;
+		return process.env.NEXT_PUBLIC_DEFAULT_AUTHOR_HOST;
 	}
 }
 
@@ -20,6 +20,6 @@ export const getPublishHost = () => {
 	if (searchParams.has("publishHost")) {
 		return searchParams.get("publishHost");
 	} else {
-		return process.env.NEXT_PUBLIC_PUBLISH_HOST;
+		return process.env.NEXT_PUBLIC_DEFAULT_PUBLISH_HOST;
 	}
 }

@@ -19,20 +19,26 @@ export default function Header({ isAuthorVersion, host }) {
       <div className="content">
         <div className="left">
           <Link href="/">
-            <Image src={"/wknd-logo-dk.svg"} alt="logo" height={36} width={"100%"} className="logo" />
+            <a><Image src={"/wknd-logo-dk.svg"} alt="logo" height={36} width={"100%"} className="logo" /></a>
           </Link>
         </div>
 
         <ul className="middle">
-          <Link href="/adventures">
-            <li>adventures</li>
-          </Link>
-          <Link href="/magazine">
-            <li>magazine</li>
-          </Link>
-          <Link href="/about-us">
-            <li>about us</li>
-          </Link>
+          <li>
+            <Link href="/adventures">
+              adventures
+            </Link>
+          </li>
+          <li>
+            <Link href="/magazine">
+              magazine
+            </Link>
+          </li>
+          <li>
+            <Link href="/about-us">
+              about us
+            </Link>
+          </li>
         </ul>
 
         <div className="right">
