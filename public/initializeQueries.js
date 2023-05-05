@@ -6,7 +6,6 @@ const fetchConfig = {
   endpoint: "graphql/execute.json/sample-wknd-app/homepage",
 };
 
-
 const searchParams = new URLSearchParams(window.location.search);
 
 const author = searchParams.get("authorHost");

@@ -160,6 +160,23 @@ button {
   }
 }
 
+.pill {
+  padding: 11px 16px 13px;
+  border-radius: 20px
+}
+
+.pill.default {
+  border: 1px solid #696969;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
