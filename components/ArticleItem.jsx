@@ -13,9 +13,8 @@ export default function ArticleItem(props) {
   return (
     <li className="article-item" itemScope {...editorProps}>
       <aside>
-        <Image className="article-item-image"
-          src={`${getPublishHost()}${authorFragment?.profilePicture._path}`}
-          alt={title} itemProp="profilePicture" itemType="image"  width="350" height="350" />
+        <img className="article-item-image" itemType="image" itemProp="profilePicture"
+          src={`${getPublishHost()}${authorFragment?.profilePicture._path}`} alt={title}/>
       </aside>
       <article>
         <Link href={`/articles/${slug}${window.location.search}`}>
