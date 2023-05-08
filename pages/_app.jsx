@@ -12,8 +12,8 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Sparkle Demo</title>
         <meta name="urn:auecon:aemconnection" content={`aem:${process.env.NEXT_PUBLIC_AEM_HOST}`}/>
-        <Script src="universal-editor-embedded.js" async />
       </Head>
+      <Script src="universal-editor-embedded.js" async />
 
       <ResizeProvider>
         <TimelineAnimationWrapper>

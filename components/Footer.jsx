@@ -4,10 +4,10 @@ import logo from '../images/wknd-logo-dk.svg';
 const NavMenu = () => (
   <nav>
     <ul className="menu">
-      <li><a href={`/${window.location.search}`}>Home</a></li>
-      <li><a href={`/adventures${window.location.search}`}>Adventures</a></li>
-      <li><a href={`/articles${window.location.search}`}>Magazine</a></li>
-      <li><a href={`/about-us${window.location.search}`}>About Us</a></li>
+      <li><a href={`/`}>Home</a></li>
+      <li><a href={`/adventures`}>Adventures</a></li>
+      <li><a href={`/articles`}>Magazine</a></li>
+      <li><a href={`/about-us`}>About Us</a></li>
     </ul>
   </nav>
 );
