@@ -8,22 +8,21 @@ it.
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import backIcon from '../../public/Back.svg';
+import backIcon from '../../images/Back.svg';
 import Error from '../../components/base/Error';
 import Loading from '../../components/base/Loading';
-// import {mapJsonRichText} from '../utils/renderRichText';
+import Header from '../../components/Header';
 import useGraphQL from '../../lib/useGraphQL';
 import { getPublishHost } from '../../utils/fetchData';
 import { mapJsonRichText } from '../../utils/renderRichText';
 import Image from 'next/image';
+import Footer from '../../components/Footer';
 
 function AdventureDetail() {
-
 	const router = useRouter();
 
 	// params hook from React router
 	const slug = router.query.slug;
-  console.log(slug)
 	const adventureSlug = slug;
 
 	const persistentQuery = `wknd-shared/adventure-by-slug;slug=${adventureSlug}`;
@@ -55,19 +54,25 @@ function AdventureDetail() {
 	};
 
 	return (
-    <div  {...editorProps} itemScope className="adventure-detail">
-        <div><div className="adventure-detail-header">
-					<Link className="adventure-detail-close-button" href='/adventures'>
-						<a><Image
-							src={backIcon}
-							alt="Return"
-						/></a>
-					</Link>
-            <h1 className="adventure-detail-title" itemProp="title" itemType="text">{currentAdventure.title}</h1>
-            <div className="pill default"><span itemProp="activity" itemType="text">{currentAdventure.activity}</span></div>
-        </div></div>
-		<AdventureDetailRender {...currentAdventure} references={references}/>
-	</div>
+		<>
+			<Header isAuthorVersion='false' />
+			<section className="main adventures">
+				<div {...editorProps} itemScope className="adventure-detail">
+						<div className="adventure-detail-header">
+							<Link className="adventure-detail-close-button" href={`/adventures${window.location.search}`}>
+								<a><Image
+									src={backIcon}
+									alt="Return"
+								/></a>
+							</Link>
+								<h1 className="adventure-detail-title" itemProp="title" itemType="text">{currentAdventure.title}</h1>
+								<div className="pill default"><span itemProp="activity" itemType="text">{currentAdventure.activity}</span></div>
+						</div>
+					<AdventureDetailRender {...currentAdventure} references={references}/>
+				</div>
+			</section>
+			<Footer />
+		</>
     );
 }
 
@@ -119,7 +124,7 @@ function AdventureDetailRender({
 function NoAdventureFound() {
 	return (
 		<div className="adventure-detail">
-			<Link className="adventure-detail-close-button" href='/adventures'>
+			<Link className="adventure-detail-close-button" href={`/adventures${window.location.search}`}>
 				<a><Image
 					src={backIcon}
 					alt="Return"

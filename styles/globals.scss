@@ -30,8 +30,6 @@ h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-
-
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -41,6 +39,10 @@ body {
 body {
   height: 100vh;
   width: 100%;
+}
+
+section.main {
+  padding-top: 100px;
 }
 
 #__next {
@@ -175,6 +177,46 @@ button {
   width: 100%;
   left: 0;
   text-align: center;
+}
+
+.footer {
+  padding: 40px 80px;
+  grid-template-columns: 1fr 1fr;
+  background-color: $black;
+  color: $white;
+  display: grid;
+  align-items: center;
+  max-width: $max-width;
+  margin: 0 auto;
+  img {
+    height: 24px;
+  }
+  .menu {
+    margin: 0;
+    display: flex;
+    column-gap: 40px;
+  }
+  nav, small {
+    justify-self: end;
+  }
+  small {
+    padding: 40px 0;
+    color: $gray;
+    grid-column: span 2;
+  }
+  ol, ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+  .footer {
+    grid-template-columns: 1fr 1.5fr;
+    white-space: nowrap;
+    column-gap: 10px;
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {

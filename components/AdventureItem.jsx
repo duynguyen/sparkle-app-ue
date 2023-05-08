@@ -17,7 +17,7 @@ export default function AdventureItem(props) {
   return (
     <li className="adventure-item" itemScope {...editorProps}>
       <div className="adventure-image-card">
-      <Link href={`/adventures/${props.slug}`}>
+      <Link href={`/adventures/${props.slug}${window.location.search}`}>
         <a>
           <Image className="adventure-item-image" src={`${getPublishHost()}${props.primaryImage._path}`}
                 alt={props.title} itemProp="primaryImage" itemType="image" width="400" height="320" />

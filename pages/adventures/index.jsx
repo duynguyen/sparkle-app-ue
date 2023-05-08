@@ -2,10 +2,10 @@ import useGraphQL from '../../lib/useGraphQL';
 import Loading from '../../components/base/Loading';
 import AdventureItem from '../../components/AdventureItem';
 import Header from "../../components/Header";
-import { getPublishHost } from '../../utils/fetchData';
 import Title from '../../components/base/Title';
+import Footer from '../../components/Footer';
 
-export default function Adventures(props) {
+function Adventures() {
   const persistentQuery = 'wknd-shared/adventures-all';
   //Use a custom React Hook to execute the GraphQL query
   const { data, errorMessage } = useGraphQL(persistentQuery);
@@ -18,8 +18,8 @@ export default function Adventures(props) {
 
   return (
     <>
-      <Header isAuthorVersion='false' host={getPublishHost()} />
-      <section id="adventures" className="adventures">
+      <Header isAuthorVersion='false' />
+      <section className="main adventures">
         <Title itemID="urn:aemconnection:/content/wknd/us/en/adventures/jcr:content/root/container/container/title" itemType="text" itemProp="jcr:title"/>      
         <ul className="adventure-items">
           {
@@ -32,6 +32,9 @@ export default function Adventures(props) {
           }
           </ul>
       </section>
+      <Footer />
     </>
   );
 }
+
+export default Adventures;

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Script from 'next/script'
 import "../styles/globals.scss";
 import '../styles/adventures.scss';
+import '../styles/articles.scss';
 import { TimelineAnimationWrapper } from "../components/TimelineWrapper";
 import ResizeProvider from "../components/ResizeProvider";
 

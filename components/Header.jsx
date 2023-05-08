@@ -13,29 +13,29 @@ const ArrowSvg = () => (
   </svg>
 );
 
-export default function Header({ isAuthorVersion, host }) {
+export default function Header({ isAuthorVersion }) {
   return (
     <header className="header">
       <div className="content">
         <div className="left">
-          <Link href="/">
+          <Link href={`/${window.location.search}`}>
             <a><Image src={"/wknd-logo-dk.svg"} alt="logo" height={36} width={"100%"} className="logo" /></a>
           </Link>
         </div>
 
         <ul className="middle">
           <li>
-            <Link href="/adventures">
+            <Link href={`/adventures${window.location.search}`}>
               adventures
             </Link>
           </li>
           <li>
-            <Link href="/magazine">
+            <Link href={`/articles${window.location.search}`}>
               magazine
             </Link>
           </li>
           <li>
-            <Link href="/about-us">
+            <Link href={`/about-us${window.location.search}`}>
               about us
             </Link>
           </li>
