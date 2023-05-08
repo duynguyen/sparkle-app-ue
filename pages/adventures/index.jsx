@@ -1,9 +1,9 @@
-import useGraphQL from '../lib/useGraphQL';
-import Loading from '../components/base/Loading';
-import AdventureItem from '../components/AdventureItem';
-import Header from "../components/Header";
-import { getPublishHost } from '../utils/fetchData';
-import Title from '../components/base/Title';
+import useGraphQL from '../../lib/useGraphQL';
+import Loading from '../../components/base/Loading';
+import AdventureItem from '../../components/AdventureItem';
+import Header from "../../components/Header";
+import { getPublishHost } from '../../utils/fetchData';
+import Title from '../../components/base/Title';
 
 export default function Adventures(props) {
   const persistentQuery = 'wknd-shared/adventures-all';

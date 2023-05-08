@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {getPublishHost} from "../utils/fetchData";
 import Link from "next/link";
 
@@ -17,8 +18,10 @@ export default function AdventureItem(props) {
     <li className="adventure-item" itemScope {...editorProps}>
       <div className="adventure-image-card">
       <Link href={`/adventures/${props.slug}`}>
-        <img className="adventure-item-image" src={`${getPublishHost()}${props.primaryImage._path}`}
-              alt={props.title} itemProp="primaryImage" itemType="image" />
+        <a>
+          <Image className="adventure-item-image" src={`${getPublishHost()}${props.primaryImage._path}`}
+                alt={props.title} itemProp="primaryImage" itemType="image" width="400" height="320" />
+        </a>
       </Link>
       </div>
       <h3 className="adventure-item-title" itemProp="title" itemType="text">{props.title.toLowerCase()}</h3>
