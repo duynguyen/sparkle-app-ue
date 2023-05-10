@@ -31,6 +31,11 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          NEXT_PUBLIC_AEM_HOST: ${{ secrets.AEM_HOST }}
+          NEXT_PUBLIC_DEFAULT_AUTHOR_HOST: ${{ secrets.DEFAULT_AUTHOR_HOST }}
+          NEXT_PUBLIC_DEFAULT_PUBLISH_HOST: ${{ secrets.DEFAULT_PUBLISH_HOST }}
+          NEXT_PUBLIC_GRAPHQL_ENDPOINT: ${{ secrets.GRAPHQL_ENDPOINT }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
