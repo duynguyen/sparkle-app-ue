@@ -25,6 +25,7 @@ export default function PointTextMap({ data }) {
     <div className="wrapperForRatio" id={data.id} style={{ aspectRatio }}>
       <div className="pointTextLayer" style={{ objectFit: data?.fit || "contain", aspectRatio }}>
         {data?.content?.map((item, index) => {
+          const editorTextMap = item._path ? { itemID: `urn:aem:${item._path}/jcr:content/data/master`, itemType: 'text', itemProp: 'text' } : null;
           return (
             <div
               key={index}
@@ -39,7 +40,9 @@ export default function PointTextMap({ data }) {
                 <div className="buyText">
                   <a href={item.link || window.location.href}>Buy for {item.pricetag}</a>
                 </div>
-                <div className="text">{item.text}</div>
+                <div itemScope {...editorTextMap}>
+                  {item.text}
+                </div>
                 <div className="arrow" />
               </div>
               <div className="dot" />

@@ -43,3 +43,6 @@ tests/visual-regression/node_modules
 .env
 .aio
 dist/
+
+# idea IDE
+.idea

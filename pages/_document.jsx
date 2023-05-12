@@ -34,6 +34,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script src="https://cdn.jsdelivr.net/gh/adobe/universal-editor-cors/dist/universal-editor-embedded.js" async></script>
       </body>
     </Html>
   )
