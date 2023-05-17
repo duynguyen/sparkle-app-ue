@@ -2,7 +2,7 @@ const fetchConfig = {
   sparkle: "https://sparkle-data.vercel.app",
   // authorHost: "https://author-p54352-e845472.adobeaemcloud.com",
   // publishHost: "https://publish-p54352-e845472.adobeaemcloud.com",
-  fallbackHost: 'https://publish-p15902-e145656-cmstg.adobeaemcloud.com',
+  fallbackHost: 'https://publish-p81252-e700852.adobeaemcloud.com',
   endpoint: "graphql/execute.json/sample-wknd-app/homepage",
 };
 
