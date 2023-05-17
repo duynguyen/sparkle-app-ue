@@ -28,7 +28,16 @@ $adventureItemHeightMobile: 250px;
   & > h1, &> ul {
     max-width: $max-width;
     margin: 0 auto;
-  } 
+  }
+
+  button {
+    padding: 12px 40px;
+    font-size: 1rem;
+    border: 1px solid $black;
+    border-radius: 4px;
+    min-width: 4rem;
+    margin-right: 1rem;
+  }
 }
 
 .adventure-items {
