@@ -1,6 +1,7 @@
 import { scrollToId } from "./utils";
+import { v4 as uuidv4 } from 'uuid';
 
-export default function Menu({ menuItems, activeMenuItem }) {
+export default function Menu({ menuItems, activeMenuItem, panelNr }) {
   const onClickHandler = (link) => {
     if (link) {
       scrollToId(link);
@@ -14,14 +15,17 @@ export default function Menu({ menuItems, activeMenuItem }) {
     <div className="menuWrapper">
       <ul className="menuList">
         {menuItems.map((item, index) => {
+          const unique = uuidv4();
+          const editorMenu = panelNr === 0 && item._path ? { itemID: `urn:aem:${item._path}/jcr:content/data/master`, itemType: 'text', itemProp: 'text' } : null;
           return (
             <li
-              key={index}
+              itemScope
+              key={unique + index}
               onClick={() => onClickHandler(item?.link)}
               className={`menuListItem ${activeMenuItem === item.menuItemId ? "active" : ""}`}
               id={"menuItem-" + item.menuItemId}
             >
-              {item.text}
+              <span itemScope {...editorMenu}>{item.text}</span>
             </li>
           );
         })}

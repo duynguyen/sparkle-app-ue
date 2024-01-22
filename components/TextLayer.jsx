@@ -17,13 +17,14 @@ const isMenu = (obj) => {
   return obj?._model.title === 'Panel Menu'
 }
 
-export default function TextLayer({ data, activeMenuItem }) {
+export default function TextLayer({ data, activeMenuItem, panelNr }) {
   return (
     <div className={"textLayer"} id={data?.id}>
       {data?.column?.length ? (
         <div className={`columnWrapper ${data?.textPosition || ""} ${data?.noPadding ? "noPadding" : ""}`}>
           {data?.column?.map((item, index) => {
-            const MatchingComponent = (textItemLookup[item.type] || 'p')
+            const MatchingComponent = (textItemLookup[item.type] || 'p');
+            const editorColumn = item._path ? { itemID: `urn:aem:${item._path}/jcr:content/data/master`, itemType: 'text', itemProp: 'content' } : null;
             return (
               <MatchingComponent
                 key={index + data.id}
@@ -31,9 +32,7 @@ export default function TextLayer({ data, activeMenuItem }) {
                 ${item?.styles?.join(" ")}`}
                 id={item.id}
                 itemScope
-                itemID={`urn:aem:${item._path}/jcr:content/data/master`}
-                itemProp="content"
-                itemType="text"
+                {...editorColumn}
               >
                 {item.content?.plaintext}
               </MatchingComponent>
@@ -44,15 +43,14 @@ export default function TextLayer({ data, activeMenuItem }) {
 
       <div className="left">
         {data?.leftBox?.map((item, index) => {
-          const MatchingComponent = (textItemLookup[item.type] || 'p')
+          const MatchingComponent = (textItemLookup[item.type] || 'p');
+          const editorLeft = item._path ? { itemID: `urn:aem:${item._path}/jcr:content/data/master`, itemType: 'text', itemProp: 'content' } : null;
           return (
             <MatchingComponent
               key={index + data.id}
               className={`${item.type} ${item?.styles?.join(" ")}`}
               id={item.id}
-              itemScope itemID={`urn:aem:${item._path}/jcr:content/data/master`}
-              itemProp="content"
-              itemType="text"
+              {...editorLeft}
             >
               {item.content?.plaintext}
             </MatchingComponent>
@@ -68,6 +66,7 @@ export default function TextLayer({ data, activeMenuItem }) {
               menuItems={item.menuItems}
               activeMenuItem={activeMenuItem}
               key={index}
+              panelNr={panelNr}
               className={`${item.type} ${item?.styles?.join(" ")}`}
               id={item.id}
             >
